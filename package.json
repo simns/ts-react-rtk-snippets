@@ -1,0 +1,32 @@
+{
+  "name": "ts-react-rtk-snippets",
+  "displayName": "Typescript + React + Redux Toolkit Snippets",
+  "description": "Some modern style snippets for Typescript and React and Redux Toolkit apps.",
+  "version": "1.0.0",
+  "publisher": "simon.luppescu",
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "categories": [
+    "Snippets"
+  ],
+  "contributes": {
+    "snippets": [
+      {
+        "language": "typescript",
+        "path": "./snippets.json"
+      },
+      {
+        "language": "typescriptreact",
+        "path": "./snippets.json"
+      }
+    ]
+  },
+  "scripts": {
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@vscode/test-cli": "^0.0.8",
+    "@vscode/test-electron": "^2.3.9"
+  }
+}

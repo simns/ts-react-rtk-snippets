@@ -1,0 +1,264 @@
+{
+  "React Functional Component (no props)": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rfc",
+    "body": [
+      "const ${1:$TM_FILENAME_BASE}: React.FC = () => {",
+      "\treturn <div>$2</div>;",
+      "};",
+      "",
+      "export default ${1:$TM_FILENAME_BASE};"
+    ]
+  },
+  "React Functional Component with Props": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rfcp",
+    "body": [
+      "type Props = {",
+      "\t$2",
+      "};",
+      "",
+      "const ${1:$TM_FILENAME_BASE}: React.FC<Props> = (props) => {",
+      "\tconst { $3 } = props;",
+      "",
+      "\treturn <div>$4</div>;",
+      "};",
+      "",
+      "export default ${1:$TM_FILENAME_BASE};"
+    ]
+  },
+  "React useState": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rus",
+    "body": ["const [$1, set${1/(^[a-z])/${1:/upcase}/}] = useState<$2>($3);"]
+  },
+  "React useState boolean": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rusb",
+    "body": [
+      "const [$1, set${1/(^[a-z])/${1:/upcase}/}] = useState<boolean>(${2:false});"
+    ]
+  },
+  "React useState string": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "russ",
+    "body": [
+      "const [$1, set${1/(^[a-z])/${1:/upcase}/}] = useState<string>(${2:\"\"});"
+    ]
+  },
+  "React useState Array": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rusa",
+    "body": [
+      "const [$1, set${1/(^[a-z])/${1:/upcase}/}] = useState<Array<$2>>(${3:[]});"
+    ]
+  },
+  "React useState number": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rusn",
+    "body": [
+      "const [$1, set${1/(^[a-z])/${1:/upcase}/}] = useState<number>(${2:0});"
+    ]
+  },
+  "React useEffect": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rue",
+    "body": ["useEffect(() => {", "\t$2", "}, [$1]);"]
+  },
+  "React useRef": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rur",
+    "body": ["const $1Ref = useRef<${2:HTMLDivElement}>(null);"]
+  },
+  "React useContext": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ruc",
+    "body": ["const $1 = useContext($2Context);"]
+  },
+  "React createContext": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rcc",
+    "body": ["const $1Context = createContext<$2>($3);"]
+  },
+  "Functional Component with Routes": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rfcroutes",
+    "body": [
+      "import { BrowserRouter, Route, Routes } from \"react-router-dom\";",
+      "",
+      "const $1: React.FC = () => {",
+      "\treturn (",
+      "\t\t<BrowserRouter>",
+      "\t\t\t<Routes>",
+      "\t\t\t\t<Route element={<$2 />} path=\"/$3\" />",
+      "\t\t\t</Routes>",
+      "\t\t</BrowserRouter>",
+      "\t);",
+      "};",
+      "",
+      "export default $1;"
+    ]
+  },
+  "export default": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "exd",
+    "body": ["export default $1;"]
+  },
+  "export type": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "ext",
+    "body": ["export type $1 = {", "\t$2", "};"]
+  },
+  "export interface": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "exi",
+    "body": ["export interface $1 {", "\t$2", "}"]
+  },
+  "export enum": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "exe",
+    "body": ["export enum $1 {", "\t$2,", "\t$3", "}"]
+  },
+  "export enum as strings": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "exes",
+    "body": [
+      "export enum $1 {",
+      "\t$2 = \"$2\",",
+      "\t$3 = \"$3\",",
+      "\t$4 = \"$4\",",
+      "\t$5 = \"$5\"",
+      "}"
+    ]
+  },
+  "Redux Toolkit Slice": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rtkslice",
+    "body": [
+      "import { createSlice, PayloadAction } from \"@reduxjs/toolkit\";",
+      "",
+      "type ${1/(^[A-Za-z])/${1:/upcase}/}State = {",
+      "\t$2: $3;",
+      "};",
+      "",
+      "const initialState: ${1/(^[A-Za-z])/${1:/upcase}/}State = {",
+      "\t$2: $4",
+      "};",
+      "",
+      "export const ${5:$TM_FILENAME_BASE} = createSlice({",
+      "\tname: \"${1/(^[A-Za-z])/${1:/downcase}/}\",",
+      "\tinitialState,",
+      "\treducers: {",
+      "\t\tset${2/(^[A-Za-z])/${1:/upcase}/}: (state, action: PayloadAction<$3>) => {",
+      "\t\t\tstate.$2 = action.payload;",
+      "\t\t},",
+      "\t}",
+      "});",
+      "",
+      "export const { reducer: ${1/(^[A-Za-z])/${1:/downcase}/}Reducer } = ${5:$TM_FILENAME_BASE};",
+      "export const { set${2/(^[A-Za-z])/${1:/upcase}/} } = ${5:$TM_FILENAME_BASE}.actions;"
+    ]
+  },
+  "Redux Toolkit Slice action": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rtkaction",
+    "body": ["$1: (state, action: PayloadAction<$2>) => {", "\tstate.$3", "}"]
+  },
+  "Redux Toolkit useAppDispatch": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rtkuad",
+    "body": ["const dispatch = useAppDispatch();"]
+  },
+  "Redux Toolkit useAppSelector": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rtkuas",
+    "body": ["const $2 = useAppSelector((state: RootState) => state.$1);"]
+  },
+  "Redux Toolkit import dispatch and selector hooks": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "imp-rtkhooks",
+    "body": [
+      "import { useAppDispatch, useAppSelector } from \"${1:@/store/hooks}\";"
+    ]
+  },
+  "Redux Toolkit basic createAsyncThunk": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["rtkthunk", "rtkasync"],
+    "body": [
+      "export const $1 = createAsyncThunk<void, void>(",
+      "\t\"$2\",",
+      "\tasync (_, { dispatch }) => {",
+      "\t\t$0",
+      "\t}",
+      ");"
+    ]
+  },
+  "Redux Toolkit createAsyncThunk with getState": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["rtkthunk-state", "rtkasync-state"],
+    "body": [
+      "export const $1 = createAsyncThunk<void, void, { state: RootState }>(",
+      "\t\"$2\",",
+      "\tasync (_, { dispatch, getState }) => {",
+      "\t\tconst state = getState();",
+      "",
+      "\t\t$0",
+      "\t}",
+      ");"
+    ]
+  },
+  "Redux Toolkit custom params createAsyncThunk": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["rtkthunk-custom", "rtkasync-custom"],
+    "body": [
+      "export const $1 = createAsyncThunk<${2:ReturnType}, ${3:ParamType}>(",
+      "\t\"$4\",",
+      "\tasync ($5, { dispatch }) => {",
+      "\t\t$0",
+      "\t}",
+      ");"
+    ]
+  },
+  "Redux Toolkit custom params createAsyncThunk with getState": {
+    "scope": "typescript,typescriptreact",
+    "prefix": ["rtkthunk-custom-state", "rtkasync-custom-state"],
+    "body": [
+      "export const $1 = createAsyncThunk<${2:ReturnType}, ${3:ParamType}, { state: RootState }>(",
+      "\t\"$4\",",
+      "\tasync ($5, { dispatch, getState }) => {",
+      "\t\tconst state = getState();",
+      "",
+      "\t\t$0",
+      "\t}",
+      ");"
+    ]
+  },
+  "Redux Toolkit extraReducers for async thunk": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rtk-extred-thunk",
+    "body": [
+      "extraReducers: (builder) => {",
+      "\tbuilder.addCase($1.pending, (state, action) => {",
+      "\t\t// Pending action",
+      "\t});",
+      "\tbuilder.addCase($1.rejected, (state, action) => {",
+      "\t\t// Rejected action",
+      "\t});",
+      "\tbuilder.addCase($1.fulfilled, (state, action) => {",
+      "\t\t// Fulfilled action",
+      "\t});",
+      "}"
+    ]
+  },
+  "Redux Toolkit extraReducers for separate slice action": {
+    "scope": "typescript,typescriptreact",
+    "prefix": "rtk-extred-action",
+    "body": [
+      "extraReducers: (builder) => {",
+      "\tbuilder.addCase($1, (state, action) => {",
+      "\t\t$2",
+      "\t});",
+      "}"
+    ]
+  }
+}
