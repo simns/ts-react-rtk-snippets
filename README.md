@@ -1,65 +1,322 @@
-# ts-react-rtk-snippets README
+# Typescript + React + Redux Toolkit Snippets
 
-This is the README for your extension "ts-react-rtk-snippets". After writing up a brief description, we recommend including the following sections.
+These are a selection of snippets that I use keeping in mind modern trends with React development. Relevant snippets are meant to be used only with Typescript, functional components, and hooks.
 
-## Features
+These snippets are also for Redux Toolkit specifically.
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+## Snippets
 
-For example if there is an image subfolder under your extension project workspace:
+<!-- prettier-ignore -->
+| Prefix                | Description                                                |
+|-----------------------|------------------------------------------------------------|
+| rfc                   | React Functional Component (no props)                      |
+| rfcp                  | React Functional Component with Props                      |
+| rus                   | React useState                                             |
+| rusb                  | React useState boolean                                     |
+| russ                  | React useState string                                      |
+| rusa                  | React useState Array                                       |
+| rusn                  | React useState number                                      |
+| rue                   | React useEffect                                            |
+| rur                   | React useRef                                               |
+| ruc                   | React useContext                                           |
+| rcc                   | React createContext                                        |
+| rfcroutes             | Functional Component with Routes                           |
+| exd                   | export default                                             |
+| ext                   | export type                                                |
+| exi                   | export interface                                           |
+| exe                   | export enum                                                |
+| exes                  | export enum as strings                                     |
+| rtkslice              | Redux Toolkit Slice                                        |
+| rtkaction             | Redux Toolkit Slice action                                 |
+| rtkuad                | Redux Toolkit useAppDispatch                               |
+| rtkuas                | Redux Toolkit useAppSelector                               |
+| imp-rtkhooks          | Redux Toolkit import dispatch and selector hooks           |
+| rtkthunk              | Redux Toolkit basic createAsyncThunk                       |
+| rtkasync              | Redux Toolkit basic createAsyncThunk                       |
+| rtkthunk-state        | Redux Toolkit createAsyncThunk with getState               |
+| rtkasync-state        | Redux Toolkit createAsyncThunk with getState               |
+| rtkthunk-custom       | Redux Toolkit custom params createAsyncThunk               |
+| rtkasync-custom       | Redux Toolkit custom params createAsyncThunk               |
+| rtkthunk-custom-state | Redux Toolkit custom params createAsyncThunk with getState |
+| rtkasync-custom-state | Redux Toolkit custom params createAsyncThunk with getState |
+| rtk-extred-thunk      | Redux Toolkit extraReducers for async thunk                |
+| rtk-extred-action     | Redux Toolkit extraReducers for separate slice action      |
 
-\!\[feature X\]\(images/feature-x.png\)
+## Expanded code
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+`rfc` - React Functional Component (no props)
 
-## Requirements
+```tsx
+const |: React.FC = () => {
+  return <div>|</div>;
+};
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+export default |;
+```
 
-## Extension Settings
+`rfcp` - React Functional Component with Props
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+```tsx
+type Props = {
+  |
+};
 
-For example:
+const |: React.FC<Props> = (props) => {
+  const { | } = props;
 
-This extension contributes the following settings:
+  return <div>|</div>;
+};
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+export default |;
+```
 
-## Known Issues
+`rus` - React useState
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+Note: these useState snippets will auto-camelCase the `set__` method after pressing Tab.
 
-## Release Notes
+```ts
+const [|, set|] = useState<|>(|);
+```
 
-Users appreciate release notes as you update your extension.
+`rusb` - React useState boolean
 
-### 1.0.0
+```ts
+const [|, set|] = useState<boolean>(false);
+```
 
-Initial release of ...
+`russ` - React useState string
 
-### 1.0.1
+```ts
+const [|, set|] = useState<string>("");
+```
 
-Fixed issue #.
+`rusa` - React useState Array
 
-### 1.1.0
+```ts
+const [|, set|] = useState<Array<|>>([]);
+```
 
-Added features X, Y, and Z.
+`rusn` - React useState number
 
----
+```ts
+const [|, set|] = useState<number>(0);
+```
 
-## Working with Markdown
+`rue` - React useEffect
 
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
+```ts
+useEffect(() => {
+  |
+}, [|]);
+```
 
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
+`rur` - React useRef
 
-## For more information
+Note: The `HTMLDivElement` is default but the snippet will highlight it to be changed freely.
 
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
+```ts
+const |Ref = useRef<HTMLDivElement>(null);
+```
 
-**Enjoy!**
+`ruc` - React useContext
+
+```ts
+const | = useContext(|Context);
+```
+
+`rcc` - React createContext
+
+```ts
+const |Context = createContext<|>(|);
+```
+
+`rfcroutes` - Functional Component with Routes
+
+```tsx
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+
+const |: React.FC = () => {
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route element={<| />} path="/|" />
+      </Routes>
+    </BrowserRouter>
+  );
+};
+
+export default |;
+```
+
+`exd` - export default
+
+```ts
+export default |;
+```
+
+`ext` - export type
+
+```ts
+export type | = {
+  |
+};
+```
+
+`exi` - export interface
+
+```ts
+export interface | {
+  |
+}
+```
+
+`exe` - export enum
+
+```ts
+export enum | {
+  |,
+  |
+}
+```
+
+`exes` - export enum as string
+
+```ts
+export enum | {
+  | = "|",
+  | = "|",
+  | = "|",
+  | = "|"
+}
+```
+
+`rtkslice` - Redux Toolkit Slice
+
+Note: This snippet is complex. The name entered for the `type __State` is used in various places in the Slice and is auto-cased. The first property in that type will be turned into the first reducer action as well.
+
+```ts
+import { createSlice, PayloadAction } from "@reduxjs/toolkit";
+
+type |State = {
+  |: |;
+};
+
+const initialState: |State = {
+  |: |
+};
+
+export const | = createSlice({
+  name: "|",
+  initialState,
+  reducers: {
+    set|: (state, action: PayloadAction<|>) => {
+      state.| = action.payload;
+    },
+  }
+});
+
+export const { reducer: |Reducer } = |;
+export const { set| } = |.actions;
+```
+
+`rtkaction` - Redux Toolkit Slice action
+
+```ts
+|: (state, action: PayloadAction<|>) => {
+  state.|
+}
+```
+
+`rtkuad` - Redux Toolkit useAppDispatch
+
+```ts
+const dispatch = useAppDispatch();
+```
+
+`rtkuas` - Redux Toolkit useAppSelector
+
+```ts
+const | = useAppSelector((state: RootState) => state.|);
+```
+
+`imp-rtkhooks` - Redux Toolkit import dispatch and selector hooks
+
+Note: The value of `@/store/hooks` is what I use and is default here, but the snippet will highlight it for you to change freely.
+
+```ts
+import { useAppDispatch, useAppSelector } from "@/store/hooks";
+```
+
+`rtkthunk`,`rtkasync` - Redux Toolkit basic createAsyncThunk
+
+```ts
+export const | = createAsyncThunk<void, void>(
+  "|",
+  async (_, { dispatch }) => {
+    |
+  }
+);
+```
+
+`rtkthunk-state`,`rtkasync-state` - Redux Toolkit createAsyncThunk with getState
+
+```ts
+export const | = createAsyncThunk<void, void, { state: RootState }>(
+  "|",
+  async (_, { dispatch, getState }) => {
+    const state = getState();
+
+    |
+  }
+);
+```
+
+`rtkthunk-custom`,`rtkasync-custom` - Redux Toolkit custom params createAsyncThunk
+
+```ts
+export const | = createAsyncThunk<ReturnType, ParamType>(
+  "|",
+  async (|, { dispatch }) => {
+    |
+  }
+);
+```
+
+`rtkthunk-custom-state`,`rtkasync-custom-state` - Redux Toolkit custom params createAsyncThunk with getState
+
+```ts
+export const | = createAsyncThunk<ReturnType, ParamType, { state: RootState }>(
+  "|",
+  async (|, { dispatch, getState }) => {
+    const state = getState();
+
+    |
+  }
+);
+```
+
+`rtk-extred-thunk` - Redux Toolkit extraReducers for async thunk
+
+```ts
+extraReducers: (builder) => {
+  builder.addCase(|.pending, (state, action) => {
+    // Pending action
+  });
+  builder.addCase(|.rejected, (state, action) => {
+    // Rejected action
+  });
+  builder.addCase(|.fulfilled, (state, action) => {
+    // Fulfilled action
+  });
+}
+```
+
+`rtk-extred-action` - Redux Toolkit extraReducers for separate slice action
+
+```ts
+extraReducers: (builder) => {
+  builder.addCase(|, (state, action) => {
+    |
+  });
+}
+```
