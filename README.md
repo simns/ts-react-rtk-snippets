@@ -4,6 +4,8 @@ These are a selection of snippets that I use keeping in mind modern trends with 
 
 These snippets are also for Redux Toolkit specifically.
 
+<!-- test -->
+
 ## Snippets
 
 <!-- prettier-ignore -->
