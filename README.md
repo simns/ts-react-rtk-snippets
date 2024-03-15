@@ -1,6 +1,7 @@
 # Typescript + React + Redux Toolkit Snippets
 
-These are a selection of snippets that I use keeping in mind modern trends with React development. Relevant snippets are meant to be used only with Typescript, functional components, and hooks.
+These are a selection of snippets that I use keeping in mind modern trends with React development.
+Relevant snippets are meant to be used only with Typescript, functional components, and hooks.
 
 These snippets are also for Redux Toolkit specifically.
 
