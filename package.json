@@ -3,7 +3,7 @@
   "displayName": "Typescript + React + Redux Toolkit Snippets",
   "description": "Some modern style snippets for Typescript and React and Redux Toolkit apps.",
   "version": "1.0.0",
-  "publisher": "Simon Luppescu",
+  "publisher": "simonluppescu",
   "repository": {
     "type": "git",
     "url": "https://github.com/simonluppescu/ts-react-rtk-snippets.git"
