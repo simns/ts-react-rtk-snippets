@@ -6,7 +6,7 @@
   "publisher": "simonluppescu",
   "repository": {
     "type": "git",
-    "url": "https://github.com/simonluppescu/ts-react-rtk-snippets.git"
+    "url": "https://github.com/simns/ts-react-rtk-snippets.git"
   },
   "keywords": [
     "React",
